@@ -43,7 +43,7 @@ $(document).on("pageshow", "#typeIError", function(){
 	{		
 		for(var i = 0; i < count ; i++)
 		{			
-			$("#list").append("<li>"+typeIErrorArray[i]+"</li>").listview('refresh');
+			$("#list").append('<li>'+typeIErrorArray[i]+'<span id="list-option" class="ui-li-count"><img src="../images/clear_button.png"/></span></li>').listview('refresh');
 		}
 	}
 	/*
@@ -53,7 +53,7 @@ $(document).on("pageshow", "#typeIError", function(){
 		if(count < 5)
 		{
 			typeIErrorArray[count] = $(".what_to_add").val();			
-			$("#list").append("<li>"+typeIErrorArray[count]+"</li>").listview('refresh');
+			$("#list").append('<li>'+typeIErrorArray[count]+'<span id="list-option" class="ui-li-count"><img src="../images/clear_button.png"/></span></li>').listview('refresh');
 			count++;
 		}
 	   else{
@@ -68,6 +68,7 @@ $(document).on("pageshow", "#typeIError", function(){
 		 * Allowing only numbers in Browser access.
 		 */
 		if(isAndroid){
+			$('#what_to_add').attr("type","number").trigger('create');
 			this.value = this.value.replace(/[^1-9\.]/g,'');
 		}
 		else{
@@ -84,4 +85,14 @@ $(document).on("pageshow", "#typeIError", function(){
 		}
 		//else if(e.keyCode ){}
 	});	
+	
+	$('#list').delegate('li', 'tap', function () {
+		alert('clicked : '+$(this).index());
+		var index = $(this).index();		
+		//$("#list").remove(index);	
+		typeIErrorArray.splice(index,1);
+		count = typeIErrorArray.length;				
+		$(this).remove().listview('refresh');
+		
+	});
 });
