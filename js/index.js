@@ -36,6 +36,13 @@ $(document).on("pagebeforeshow", "#designpage", function(){
 		$("#solvingfor-list-option").html(solvingForValue);						// Displaying selected value in header line
 		//document.getElementById("solvingfor-list-option").style.color = selecte_option_color;		// Setting selection value color
 		
+		if(document.getElementById('samplesize_row')){
+			$('#samplesize_row').remove();
+		}		
+		if(document.getElementById('power_row')){
+			$('#power_row').remove();
+		}
+		
 		if(solvingForValue == "power"){
 			//solvingForValue = "Power";										
 			$('#input_listview').append('<li data-theme="b" id="samplesize_row"><a href="samplesize.html" data-transition="flip">'+

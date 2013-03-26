@@ -40,12 +40,7 @@ $(document).on("pageshow", "#solvingforpage", function(){
 						$("#samplesize").removeClass("ui-btn-active");
 						$("#power").removeClass("ui-btn-active");
 						$("#"+elementID).addClass("ui-btn-active");		
-						if(document.getElementById('samplesize_row')){
-							$('#samplesize_row').remove();
-						}		
-						if(document.getElementById('power_row')){
-							$('#power_row').remove();
-						}								
+														
 						if(elementID == "power"){
 							solvingForValue = "Power";										
 							/*$('#input_listview').append('<li data-theme="b" id="samplesize_row"><a href="samplesize.html" data-transition="flip">'+
