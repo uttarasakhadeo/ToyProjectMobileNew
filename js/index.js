@@ -26,7 +26,7 @@
 * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 $(document).on("pagebeforeshow", "#designpage", function(){
-	//alert("design page show : "+solvingForValue);
+	alert("design page show : "+solvingForValue);
 	/*if($.toyprojectmobile.solvingForValue){
 		$("#solvingfor-list-option").html($.toyprojectmobile.solvingForValue);						// Displaying selected value in header line
 		document.getElementById("solvingfor-list-option").style.color = selecte_option_color;		// Setting selection value color
