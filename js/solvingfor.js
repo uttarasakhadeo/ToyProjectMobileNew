@@ -26,8 +26,7 @@
 * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */				
 $(document).on("pageshow", "#solvingforpage", function(){ 				
-		// Show preselected option for solving for
-		alert("hi");
+		// Show preselected option for solving for		
 		if(solvingForValue == "Sample Size"){										
 				$("#power").removeClass("ui-btn-active");
 				$("#samplesize").addClass("ui-btn-active");					
@@ -39,28 +38,15 @@ $(document).on("pageshow", "#solvingforpage", function(){
 					{								
 						$("#samplesize").removeClass("ui-btn-active");
 						$("#power").removeClass("ui-btn-active");
-						$("#"+elementID).addClass("ui-btn-active");		
-														
+						$("#"+elementID).addClass("ui-btn-active");	
+						
+						/* Set the value of Global Variable "solvingForValue". */
 						if(elementID == "power"){
-							solvingForValue = "Power";										
-							/*$('#input_listview').append('<li data-theme="b" id="samplesize_row"><a href="samplesize.html" data-transition="flip">'+
-								'<h2 id="samplesize-header">Sample Size <span id="samplesize-list-option" class="ui-li-count"><img id="image"/>'+
-								'</span></h2></a></li>').trigger('create');									
-							$("#samplesize_row").attr("data-theme","b").trigger('create');
-							//$('#samplesize_row').css("display", "none"); // working									
-							$("#image").attr("src","img/incomplete_icon.png").trigger('create');
-							$('#input_listview').listview('refresh');*/
+							solvingForValue = "Power";																	
 						}									
 						else{
-							solvingForValue = "Sample Size";										
-							/*$('#input_listview').append('<li data-theme="b" id="power_row"><a href="power.html" data-transition="flip">'+
-								'<h2 id="power-header">Power <span id="power-list-option" class="ui-li-count"><img id="image"/>'+
-								'</span></h2></a></li>').trigger('create');
-							$("#image").attr("src","img/incomplete_icon.png").trigger('create');
-							$('#input_listview').listview('refresh');	*/								
-						}	
-						//$("#solvingfor-list-option").html(solvingForValue);											// Displaying selected value in header line
-						//document.getElementById("solvingfor-list-option").style.color = selecte_option_color;		// Setting selection value color									
+							solvingForValue = "Sample Size";																							
+						}															
 					}    														
 				});
 			});
