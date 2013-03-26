@@ -54,4 +54,8 @@ $(document).on("pageshow", "#designpage", function(){
 			$('#input_listview').listview('refresh');									
 		}	
 	}
+	
+	if(typeIErrorArray.length > 0){
+		$('#typeIerror-list-option').html("Complete");						// Displaying selected value in header line
+	}
 });

@@ -26,28 +26,28 @@
 * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */				
 $(document).on("pageshow", "#solvingforpage", function(){ 				
-		// Show preselected option for solving for		
-		if(solvingForValue == "Sample Size"){										
+	// Show preselected option for solving for		
+	if(solvingForValue == "Sample Size"){										
+			$("#power").removeClass("ui-btn-active");
+			$("#samplesize").addClass("ui-btn-active");					
+	}
+	$("#button_group a").each(function(){
+		var elementID = $(this).attr("id"); 						
+		$(document).on('click', '#'+elementID, function(event){  
+			if(event.handled !== true) // This will prevent event triggering more then once
+			{								
+				$("#samplesize").removeClass("ui-btn-active");
 				$("#power").removeClass("ui-btn-active");
-				$("#samplesize").addClass("ui-btn-active");					
-		}
-		$("#button_group a").each(function(){
-				var elementID = $(this).attr("id"); 						
-				$(document).on('click', '#'+elementID, function(event){  
-					if(event.handled !== true) // This will prevent event triggering more then once
-					{								
-						$("#samplesize").removeClass("ui-btn-active");
-						$("#power").removeClass("ui-btn-active");
-						$("#"+elementID).addClass("ui-btn-active");	
-						
-						/* Set the value of Global Variable "solvingForValue". */
-						if(elementID == "power"){
-							solvingForValue = "Power";																	
-						}									
-						else{
-							solvingForValue = "Sample Size";																							
-						}															
-					}    														
-				});
-			});
+				$("#"+elementID).addClass("ui-btn-active");	
+				
+				/* Set the value of Global Variable "solvingForValue". */
+				if(elementID == "power"){
+					solvingForValue = "Power";																	
+				}									
+				else{
+					solvingForValue = "Sample Size";																							
+				}															
+			}    														
+		});
 	});
+});
