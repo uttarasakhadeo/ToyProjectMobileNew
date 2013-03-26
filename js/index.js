@@ -36,10 +36,10 @@ $(document).on("pagebeforeshow", "#designpage", function(){
 		$("#solvingfor-list-option").html(solvingForValue);						// Displaying selected value in header line
 		//document.getElementById("solvingfor-list-option").style.color = selecte_option_color;		// Setting selection value color
 		
-		if(document.getElementById('samplesize_row')){
+		if($("#samplesize_row")){
 			$('#samplesize_row').remove();
 		}		
-		if(document.getElementById('power_row')){
+		if($("#power_row")){
 			$('#power_row').remove();
 		}
 		
