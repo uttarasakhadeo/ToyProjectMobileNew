@@ -67,8 +67,7 @@ $(document).on("pageshow", "#typeIError", function(){
 		/*
 		 * Allowing only numbers in Browser access.
 		 */
-		if(isAndroid){
-			$('#what_to_add').attr("type","number").trigger('create');
+		if(isAndroid){			
 			this.value = this.value.replace(/[^1-9\.]/g,'');
 		}
 		else{
