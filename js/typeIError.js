@@ -30,14 +30,14 @@ $(document).on("pageshow", "#typeIError", function(){
 	
 	var ua = navigator.userAgent.toLowerCase();
 	var isAndroid = ua.indexOf("android") > -1; //&& ua.indexOf("mobile");					
-	if(isAndroid) {
+	/*if(isAndroid) {
 		// Do something!
 		// Redirect to Android-site?
 		alert('Android Platform Accesing ToyProject!');
 	}
 	else{
 		alert('Browser Accesing ToyProject!');
-	}
+	}*/
 	
 	if(count != 0 && count <= 5)
 	{		
