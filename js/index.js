@@ -54,8 +54,15 @@ $(document).on("pageshow", "#designpage", function(){
 			$('#input_listview').listview('refresh');									
 		}	
 	}
-	
+		
 	if(typeIErrorArray.length > 0){
 		$('#typeIerror-list-option').html("Complete");						// Displaying selected value in header line
+	}
+	else{		
+		 var path = document.location.pathname;
+		//$('#typeIerror-list-option').remove(":contains('Complete')");				
+		$('#typeIerror-list-option').empty();		
+		$('#typeIerror-list-option').append('<img src="'+path+'/images/incomplete_icon.png">').trigger('create');	
+		$('#input_listview').listview('refresh');
 	}
 });

@@ -43,30 +43,39 @@ $(document).on("pageshow", "#typeIError", function(){
 	{		
 		for(var i = 0; i < count ; i++)
 		{			
-			$("#list").append('<li>'+typeIErrorArray[i]+'<span id="list-option" class="ui-li-count"><img src="../images/clear_button.png"/></span></li>').listview('refresh');
+			//$("#list").append('<li>'+typeIErrorArray[i]+'<span id="list-option" class="ui-li-count"><img src="../images/clear_button.png" class="ui-li-icon"/></span></li>').listview('refresh');
+			$("#list").append('<li data-icon="delete"><a href="#">'+typeIErrorArray[i]+'</a></li>').listview('refresh');
 		}
 	}
+			
 	/*
 	 * Append to list on EnterKey Pressed event.
 	 */
 	$('#what_to_add').bind("enterKey",function(e){
+		var value = $(".what_to_add").val();
 		if(count < 5)
 		{
-			typeIErrorArray[count] = $(".what_to_add").val();			
-			$("#list").append('<li>'+typeIErrorArray[count]+'<span id="list-option" class="ui-li-count"><img src="../images/clear_button.png"/></span></li>').listview('refresh');
-			count++;
+			if(value > 0 && value < 1)
+			{
+				typeIErrorArray[count] = value;			
+				//$("#list").append('<li>'+typeIErrorArray[count]+'<img src="../images/clear_button.png" class="ui-li-icon"/></li>').listview('refresh');
+				$("#list").append('<li data-icon="delete"><a href="#">'+typeIErrorArray[count]+'</a></li>').listview('refresh');
+				count++;
+			}
+			else{
+				alert("Type I Error should be between 0 and 1.");
+			}
 		}
 	   else{
 			alert("You can only add upto 5 Type I Error values.");
 	   }
-	});			
+	   $('#what_to_add').val('');
+	});
 	/*
 	 * Handing and validating key events.
 	 */
-	$('#what_to_add').keyup(function(e){
-		/*
-		 * Allowing only numbers in Browser access.
-		 */
+	$('#what_to_add').keyup(function(e){		
+		 // Allowing only numbers in Browser access.		 
 		if(isAndroid){			
 			this.value = this.value.replace(/[^1-9\.]/g,'');
 		}
@@ -74,8 +83,8 @@ $(document).on("pageshow", "#typeIError", function(){
 			if (/\D/g.test(this.value))
 			{
 				// Filter non-digits from input value.
-				this.value = this.value.replace(/\D\./g, '');		
-				//this.value = this.value.replace(/[^1-9\.]/g,'');				
+				//this.value = this.value.replace(/\D\./g, '');		
+				this.value = this.value.replace(/[^1-9\.]/g,'');				
 			}
 		}					
 		if(e.keyCode == 13 || e.keyCode == 66 )
@@ -83,15 +92,15 @@ $(document).on("pageshow", "#typeIError", function(){
 		  $(this).trigger("enterKey");
 		}
 		//else if(e.keyCode ){}
-	});	
+	});
 	
 	$('#list').delegate('li', 'tap', function () {
-		alert('clicked : '+$(this).index());
+		//alert('clicked : '+$(this).index());
 		var index = $(this).index();		
 		//$("#list").remove(index);	
 		typeIErrorArray.splice(index,1);
 		count = typeIErrorArray.length;				
-		$(this).remove().listview('refresh');
-		
+		//$(this).remove().listview('refresh');		
+		$(this).remove();		
 	});
 });
