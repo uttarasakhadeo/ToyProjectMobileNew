@@ -98,7 +98,7 @@ $(document).on("pageshow", "#typeIError", function(){
 		//alert('clicked : '+$(this).index());
 		var index = $(this).index();		
 		//$("#list").remove(index);	
-		$(this).remove();
+		//$(this).remove();
 		typeIErrorArray.splice(index,1);
 		count = typeIErrorArray.length;				
 		//$(this).remove().listview('refresh');		
