@@ -26,10 +26,11 @@
 * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */				
 $(document).on("pageshow", "#typeIError", function(){
-	var count = typeIErrorArray.length;	
+	var count = typeIErrorArray.length;		
 	
 	var ua = navigator.userAgent.toLowerCase();
 	var isAndroid = ua.indexOf("android") > -1; //&& ua.indexOf("mobile");					
+	var i = 0;
 	/*if(isAndroid) {
 		// Do something!
 		// Redirect to Android-site?
@@ -41,7 +42,7 @@ $(document).on("pageshow", "#typeIError", function(){
 	
 	if(count != 0 && count <= 5)
 	{		
-		for(var i = 0; i < count ; i++)
+		for(i = 0; i < count ; i++)
 		{			
 			//$("#list").append('<li>'+typeIErrorArray[i]+'<span id="list-option" class="ui-li-count"><img src="../images/clear_button.png" class="ui-li-icon"/></span></li>').listview('refresh');
 			$("#list").append('<li id="'+i+'" data-icon="delete"><a href="#">'+typeIErrorArray[i]+'</a></li>').listview('refresh');
@@ -98,9 +99,9 @@ $(document).on("pageshow", "#typeIError", function(){
 		//alert('clicked : '+$(this).index());
 		var index = $(this).index();				
 		//$(this).hide();
-		$('#'+index).remove();
+		$('#'+index).hide();
 		typeIErrorArray.splice(index,1);
-		count = typeIErrorArray.length;				
+		count = typeIErrorArray.length;			
 		//$(this).remove().listview('refresh');		
 		//$(this).listview('refresh');
 				
