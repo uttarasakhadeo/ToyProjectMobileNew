@@ -44,7 +44,7 @@ $(document).on("pageshow", "#typeIError", function(){
 		for(var i = 0; i < count ; i++)
 		{			
 			//$("#list").append('<li>'+typeIErrorArray[i]+'<span id="list-option" class="ui-li-count"><img src="../images/clear_button.png" class="ui-li-icon"/></span></li>').listview('refresh');
-			$("#list").append('<li data-icon="delete"><a href="#">'+typeIErrorArray[i]+'</a></li>').listview('refresh');
+			$("#list").append('<li id="'+i+'" data-icon="delete"><a href="#">'+typeIErrorArray[i]+'</a></li>').listview('refresh');
 		}
 	}
 			
@@ -59,7 +59,7 @@ $(document).on("pageshow", "#typeIError", function(){
 			{
 				typeIErrorArray[count] = value;			
 				//$("#list").append('<li>'+typeIErrorArray[count]+'<img src="../images/clear_button.png" class="ui-li-icon"/></li>').listview('refresh');
-				$("#list").append('<li data-icon="delete"><a href="#">'+typeIErrorArray[count]+'</a></li>').listview('refresh');
+				$("#list").append('<li id="'+count+'" data-icon="delete"><a href="#">'+typeIErrorArray[count]+'</a></li>').listview('refresh');
 				count++;
 			}
 			else{
@@ -96,9 +96,9 @@ $(document).on("pageshow", "#typeIError", function(){
 	
 	$('#list').delegate('li', 'tap', function () {
 		//alert('clicked : '+$(this).index());
-		var index = $(this).index();		
-		//$("#list").remove(index);	
-		$(this).hide();
+		var index = $(this).index();				
+		//$(this).hide();
+		$('#'+index).remove();
 		typeIErrorArray.splice(index,1);
 		count = typeIErrorArray.length;				
 		//$(this).remove().listview('refresh');		
