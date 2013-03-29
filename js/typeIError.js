@@ -45,26 +45,30 @@ $(document).on("pageshow", "#typeIError", function(){
 		for(i = 0; i < count ; i++)
 		{			
 			//$("#list").append('<li>'+typeIErrorArray[i]+'<span id="list-option" class="ui-li-count"><img src="../images/clear_button.png" class="ui-li-icon"/></span></li>').listview('refresh');
-			$("#list").append('<li id="'+i+'" data-icon="delete"><a href="#">'+typeIErrorArray[i]+'</a></li>').listview('refresh');
+			$("#list").append('<li class="'+i+'" data-icon="delete"><a href="#">'+typeIErrorArray[i]+'</a></li>').listview('refresh');
 		}
-	}
-			
+	}	
+		
 	/*
 	 * Append to list on EnterKey Pressed event.
 	 */
 	$('#what_to_add').bind("enterKey",function(e){
-		var value = $(".what_to_add").val();
+		var value = $("#what_to_add").val();
 		if(count < 5)
 		{
 			if(value > 0 && value < 1)
 			{
+				$("#what_to_add_label").css('color', '#000000');
 				typeIErrorArray[count] = value;			
 				//$("#list").append('<li>'+typeIErrorArray[count]+'<img src="../images/clear_button.png" class="ui-li-icon"/></li>').listview('refresh');
-				$("#list").append('<li id="'+count+'" data-icon="delete"><a href="#">'+typeIErrorArray[count]+'</a></li>').listview('refresh');
+				$("#list").append('<li class="'+count+'" data-icon="delete"><a href="#">'+typeIErrorArray[count]+'</a></li>').listview('refresh');
 				count++;
 			}
 			else{
-				alert("Type I Error should be between 0 and 1.");
+				//alert("Type I Error should be between 0 and 1.");
+				//var label = document.getElementById(("what_to_add_label");
+				//label.style.color = "Red";
+				$("#what_to_add_label").css('color', '#FF0000');
 			}
 		}
 	   else{
@@ -98,8 +102,8 @@ $(document).on("pageshow", "#typeIError", function(){
 	$('#list').delegate('li', 'tap', function () {
 		//alert('clicked : '+$(this).index());
 		var index = $(this).index();				
-		//$(this).hide();
-		$('#'+index).hide();
+		$(this).hide();
+		//$(this).parents(".custom_select ."+index).hide();
 		typeIErrorArray.splice(index,1);
 		count = typeIErrorArray.length;			
 		//$(this).remove().listview('refresh');		

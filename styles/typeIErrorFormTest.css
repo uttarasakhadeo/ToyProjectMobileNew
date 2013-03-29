@@ -1,0 +1,24 @@
+.error
+	{
+		background-color: #CC3300;
+		border: 1px solid #E1E16D;
+		border-radius: 0 4px 4px 0;
+		box-shadow: 0 0 6px #DDDDDD;
+		color: #FFFFFF;
+		display: none;
+		font-size: 12px;
+		height: 15px;
+		padding: 4px 10px;
+		border-radius: 6px;
+}
+.error em
+	{
+		display: block;
+		width: 0;
+		height: 0;
+		border: 10px solid;
+		border-color: #CC3300 transparent transparent; /* positioning */
+		position: absolute;
+		bottom: -17px;
+		left: 60px;
+}
